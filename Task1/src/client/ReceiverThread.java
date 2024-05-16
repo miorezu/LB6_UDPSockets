@@ -18,10 +18,10 @@ class ReceiverThread extends Thread {
         while (true) {
             if (stopped)
                 return;
-            DatagramPacket dp = new DatagramPacket(buffer, buffer.length);
+            DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
             try {
-                socket.receive(dp);
-                String s = new String(dp.getData(), 0, dp.getLength(), "UTF-8");
+                socket.receive(packet);
+                String s = new String(packet.getData(), 0, packet.getLength(), "UTF-8");
                 System.out.println(s);
                 Thread.yield();
             } catch (IOException ex) {

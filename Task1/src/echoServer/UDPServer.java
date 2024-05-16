@@ -30,7 +30,7 @@ public abstract class UDPServer implements Runnable {
                 } catch (IOException ex) {
                     System.err.println(ex.getMessage() + "\n" + ex);
                 }
-            } // end while
+            }
         } catch (SocketException ex) {
             System.err.println("Could not bind to port: " + port + "\n" + ex);
         }

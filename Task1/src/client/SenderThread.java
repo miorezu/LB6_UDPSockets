@@ -30,9 +30,8 @@ public class SenderThread extends Thread {
         try {
             BufferedReader userInput = new BufferedReader(
                     new InputStreamReader(System.in));
-            if (stopped)
-                return;
-            while (true) {
+
+            while (!stopped) {
                 String theLine = userInput.readLine();
                 if (theLine.equals("."))
                     break;

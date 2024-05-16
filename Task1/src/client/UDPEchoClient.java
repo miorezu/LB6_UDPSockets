@@ -6,7 +6,7 @@ import java.net.SocketException;
 import java.net.UnknownHostException;
 
 public class UDPEchoClient {
-    public final static int PORT = 7;
+    public final static int PORT = 1200;
 
     public static void main(String[] args) {
         String hostname = "localhost";
@@ -14,9 +14,9 @@ public class UDPEchoClient {
             hostname = args[0];
         }
         try {
-            InetAddress ia = InetAddress.getByName(hostname);
+            InetAddress inetAddress = InetAddress.getByName(hostname);
             DatagramSocket socket = new DatagramSocket();
-            Thread sender = new SenderThread(socket, ia, PORT);
+            Thread sender = new SenderThread(socket, inetAddress, PORT);
             sender.start();
             Thread receiver = new ReceiverThread(socket);
             receiver.start();
